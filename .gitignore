@@ -1,0 +1,3 @@
+*.ignore
+config/development.yaml
+config/production.yaml

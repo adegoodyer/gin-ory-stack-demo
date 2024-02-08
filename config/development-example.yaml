@@ -1,0 +1,5 @@
+server:
+  port: 8080
+kratos:
+  loginUrl: https://app.example.com/self-service/login/browser
+  registrationUrl: https://app.example.com/self-service/registration/browser
