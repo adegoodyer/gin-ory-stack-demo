@@ -2,6 +2,7 @@ version: "3"
 
 includes:
   app: scripts/taskfiles/app.yaml
+  container: scripts/taskfiles/container.yaml
 
 tasks:
   default:
