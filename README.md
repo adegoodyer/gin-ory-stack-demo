@@ -6,7 +6,8 @@
     - [Features](#features)
     - [Goals](#goals)
     - [Future Iterations](#future-iterations)
-  - [Commands](#commands)
+  - [Launch App](#launch-app)
+  - [Additional Commands](#additional-commands)
 
 ## Overview
 - deep dive into Ory stack
@@ -40,7 +41,7 @@
   - [ ] account-recovery
   - [ ] error
   - [ ] update-user-settings
-- [ ] containerise app (Docker, docker-compose or k8s)
+- [x] containerise app (Docker, docker-compose or k8s)
 - [x] export into Gitlab
 - [ ] pipeline - container building (Gitlab action)
 
@@ -49,7 +50,20 @@
 - [ ] Admin panel
 - [ ] Cobra CLI (instead of single flag processing)
 
-## Commands
+## Launch App
+```bash
+# create config/development.yaml and config/production.yaml (see examples in dir)
+
+# build container
+task container:build
+
+# run container
+task container:run
+
+# http://127.0.0.1:8080
+```
+
+## Additional Commands
 ```bash
 task # list tasks and descriptions
 task app:build
