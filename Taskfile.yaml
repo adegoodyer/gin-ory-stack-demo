@@ -1,0 +1,11 @@
+version: "3"
+
+includes:
+  app: scripts/taskfiles/app.yaml
+
+tasks:
+  default:
+    desc: "List of tasks"
+    cmds:
+      - task -l
+    silent: true
