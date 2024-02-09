@@ -14,4 +14,4 @@ tasks:
   run:
     desc: Run container
     cmds:
-      - docker container run --name gin-ory-stack-demo -p 8080:8080 gin-ory-stack-demo
+      - docker container run --rm --name gin-ory-stack-demo -p 8080:8080 gin-ory-stack-demo
