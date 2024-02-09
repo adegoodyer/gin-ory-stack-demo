@@ -5,8 +5,9 @@ import (
 	accountrecovery "gin-ory-stack-demo/controllers/account-recovery"
 	accountverification "gin-ory-stack-demo/controllers/account-verification"
 	"gin-ory-stack-demo/controllers/dashboard"
+	"gin-ory-stack-demo/controllers/error"
+	"gin-ory-stack-demo/controllers/login"
 	profilesettings "gin-ory-stack-demo/controllers/profile-settings"
-	signin "gin-ory-stack-demo/controllers/sign-in"
 	signup "gin-ory-stack-demo/controllers/sign-up"
 	"net/http"
 
@@ -60,20 +61,21 @@ func NewRouter() *gin.Engine {
 		ctx.Redirect(http.StatusMovedPermanently, "/dashboard")
 	})
 	router.GET("/dashboard", dashboard.Handler)
-	router.GET("/sign-in", signin.Handler)
+	router.GET("/login", login.Handler)
 	router.GET("/sign-up", signup.Handler)
 	router.GET("/account-recovery", accountrecovery.Handler)
 	router.GET("/account-verification", accountverification.Handler)
 	router.GET("/profile-settings", profilesettings.Handler)
+	router.GET("/error", error.Handler)
 	router.GET("/metrics", gin.WrapH(promhttp.Handler()))
 
 	// error handling
-	router.NoRoute(func(ctx *gin.Context) {
-		ctx.Redirect(http.StatusMovedPermanently, "/error")
-	})
-	router.NoMethod(func(ctx *gin.Context) {
-		ctx.Redirect(http.StatusMovedPermanently, "/error")
-	})
+	// router.NoRoute(func(ctx *gin.Context) {
+	// 	ctx.Redirect(http.StatusMovedPermanently, "/error")
+	// })
+	// router.NoMethod(func(ctx *gin.Context) {
+	// 	ctx.Redirect(http.StatusMovedPermanently, "/error")
+	// })
 
 	return router
 }

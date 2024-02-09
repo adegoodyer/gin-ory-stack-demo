@@ -1,4 +1,4 @@
-{{define "sign-in"}}
+{{define "login"}}
 
 <!doctype html>
 <html lang="en" class="full-height">
@@ -9,26 +9,28 @@
 
   <div class="col-lg-8 mx-auto p-3 py-md-5">
 
-    <main class="form-signin">
-      <form>
+    <main class="form">
+      <form action="/login" method="post">
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         <hr>
 
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Password</label>
+          <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="name@example.com">
+          <label for="userEmail">Email address</label>
         </div>
 
-        <div class="mb-3">
+        <div class="form-floating">
+          <input type="password" class="form-control" name="userPassword" placeholder="Password">
+          <label for="userPassword">Password</label>
         </div>
+
         <p>Don't have an account? <a href="/sign-up">Sign up</a></p>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
       </form>
     </main>
+
+    <!-- {{ .data.LoginForm }} -->
+
   </div>
 
   {{ template "scripts" }}
