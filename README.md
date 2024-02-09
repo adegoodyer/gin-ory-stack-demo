@@ -51,7 +51,10 @@
 
 ## Commands
 ```bash
-task              # list tasks
-task app:build:   # build app
-task app:run      # run app
+task # list tasks and descriptions
+task app:build
+task app:run
+task container:build
+task container:delete
+task container:run
 ```

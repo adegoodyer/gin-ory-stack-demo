@@ -1,0 +1,17 @@
+version: "3"
+
+tasks:
+  build:
+    desc: Build container image
+    cmds:
+      - docker build . -t gin-ory-stack-demo -f deploy/Dockerfile
+
+  delete:
+    desc: Delete container
+    cmds:
+      - docker rm gin-ory-stack-demo
+
+  run:
+    desc: Run container
+    cmds:
+      - docker container run --name gin-ory-stack-demo -p 8080:8080 gin-ory-stack-demo
