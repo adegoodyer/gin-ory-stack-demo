@@ -1,0 +1,12 @@
+version: "3"
+
+tasks:
+  build:
+    desc: Build Go app
+    cmds:
+      - go build -o /usr/local/bin/gin-ory-stack-demo ./cmd/server-side-browser/
+
+  run:
+    desc: Run Go app
+    cmds:
+      - go run cmd/server-side-browser/main.go
