@@ -6,8 +6,7 @@
     - [Features](#features)
     - [Goals](#goals)
     - [Future Iterations](#future-iterations)
-    - [Setup](#setup)
-  - [Development](#development)
+  - [Commands](#commands)
 
 ## Overview
 - deep dive into Ory stack
@@ -25,8 +24,10 @@
 ## Project
 
 ### Features
+- Ory stack
 - Gin router/web framework
 - viper configuration
+- [Taskfiles](https://taskfile.dev/)
 
 ### Goals
 - [x] deploy kratos into k8s cluster
@@ -39,40 +40,18 @@
   - [ ] account-recovery
   - [ ] error
   - [ ] update-user-settings
-- [ ] containerise app (either Docker, docker-compose or k8s)
-- [ ] export into Gitlab
-- [ ] pipeline - container build process (versioned and use Gitlab action)
+- [ ] containerise app (Docker, docker-compose or k8s)
+- [x] export into Gitlab
+- [ ] pipeline - container building (Gitlab action)
 
 ### Future Iterations
 - [ ] MFA
 - [ ] Admin panel
 - [ ] Cobra CLI (instead of single flag processing)
 
-### Setup
+## Commands
 ```bash
-# init project
-go mod init gin-ory-stack-demo
-
-# get dependencies
-go get -u \
-github.com/gin-gonic/gin \
-github.com/spf13/viper \
-github.com/prometheus/client_golang/prometheus \
-github.com/gin-contrib/sessions
-
-# run locally
-go run cmd/self-service-user-flows-browser-server-side/main.go
-
-# http://127.0.0.1:8080/dashboard
-```
-
-## Development
-```bash
-# download modules
-go mod download
-
-# run locally
-go run cmd/self-service-user-flows-browser-server-side/main.go
-
-# http://127.0.0.1:8080/dashboard
+task              # list tasks
+task app:build:   # build app
+task app:run      # run app
 ```
