@@ -34,8 +34,8 @@
 - [x] deploy kratos into k8s cluster
 - [x] implement basic Bootstrap 5 app to use for testing
 - [ ] implement flows (excluding MFA for now) for browser server-side app using Gin
-  - [ ] sign-in
-  - [ ] sign-out
+  - [ ] login
+  - [ ] logout
   - [ ] registration
   - [ ] account-verification
   - [ ] account-recovery
