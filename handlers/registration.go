@@ -19,7 +19,7 @@ func AccountRegistrationHandler(ctx *gin.Context) {
 	}
 
 	// render template and pass in data
-	ctx.HTML(http.StatusOK, "sign-up", gin.H{
+	ctx.HTML(http.StatusOK, "registration", gin.H{
 		"data": data,
 	})
 }

@@ -19,7 +19,7 @@ func AccountVerificationHandler(ctx *gin.Context) {
 	}
 
 	// render template and pass in data
-	ctx.HTML(http.StatusOK, "account-verification", gin.H{
+	ctx.HTML(http.StatusOK, "verification", gin.H{
 		"data": data,
 	})
 }

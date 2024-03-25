@@ -19,7 +19,7 @@ func AccountRecoveryHandler(ctx *gin.Context) {
 	}
 
 	// render template and pass in data
-	ctx.HTML(http.StatusOK, "account-recovery", gin.H{
+	ctx.HTML(http.StatusOK, "recovery", gin.H{
 		"data": data,
 	})
 }

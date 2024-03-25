@@ -19,7 +19,7 @@ func ProfileSettingsHandler(ctx *gin.Context) {
 	}
 
 	// render template and pass in data
-	ctx.HTML(http.StatusOK, "profile-settings", gin.H{
+	ctx.HTML(http.StatusOK, "settings", gin.H{
 		"data": data,
 	})
 
