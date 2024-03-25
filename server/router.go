@@ -2,13 +2,7 @@ package server
 
 import (
 	"encoding/gob"
-	accountrecovery "gin-ory-stack-demo/controllers/account-recovery"
-	accountverification "gin-ory-stack-demo/controllers/account-verification"
-	"gin-ory-stack-demo/controllers/dashboard"
-	"gin-ory-stack-demo/controllers/error"
-	"gin-ory-stack-demo/controllers/login"
-	profilesettings "gin-ory-stack-demo/controllers/profile-settings"
-	signup "gin-ory-stack-demo/controllers/sign-up"
+	"gin-ory-stack-demo/handlers"
 	"net/http"
 
 	"github.com/gin-contrib/sessions"
@@ -60,16 +54,15 @@ func NewRouter() *gin.Engine {
 	router.GET("/", func(ctx *gin.Context) {
 		ctx.Redirect(http.StatusMovedPermanently, "/dashboard")
 	})
-	router.GET("/dashboard", dashboard.Handler)
-	router.GET("/login", login.Handler)
-	router.GET("/sign-up", signup.Handler)
-	router.GET("/account-recovery", accountrecovery.Handler)
-	router.GET("/account-verification", accountverification.Handler)
-	router.GET("/profile-settings", profilesettings.Handler)
-	router.GET("/error", error.Handler)
+	router.GET("/dashboard", handlers.DashboardHandler)
+	// router.GET("/login", handlers.LoginHandler)
+	router.GET("/sign-up", handlers.SignUpHandler)
+	router.GET("/account-recovery", handlers.AccountRecoveryHandler)
+	router.GET("/account-verification", handlers.AccountRecoveryHandler)
+	router.GET("/profile-settings", handlers.ProfileSettingsHandler)
 	router.GET("/metrics", gin.WrapH(promhttp.Handler()))
 
-	// error handling
+	// default error handling
 	// router.NoRoute(func(ctx *gin.Context) {
 	// 	ctx.Redirect(http.StatusMovedPermanently, "/error")
 	// })
