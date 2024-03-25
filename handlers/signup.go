@@ -1,4 +1,4 @@
-package dashboard
+package handlers
 
 import (
 	"net/http"
@@ -7,25 +7,19 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type TemplateData struct {
-	Title   string
-	Profile interface{}
-}
-
-func Handler(ctx *gin.Context) {
+func SignUpHandler(ctx *gin.Context) {
 
 	// get session
 	session := sessions.Default(ctx)
 
 	// initialise template data
 	data := TemplateData{
-		Title:   "Dashboard",
+		Title:   "Account Signup",
 		Profile: session.Get("profile"),
 	}
 
 	// render template and pass in data
-	ctx.HTML(http.StatusOK, "dashboard", gin.H{
+	ctx.HTML(http.StatusOK, "sign-up", gin.H{
 		"data": data,
 	})
-
 }

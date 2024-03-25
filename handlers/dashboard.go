@@ -1,4 +1,4 @@
-package profilesettings
+package handlers
 
 import (
 	"net/http"
@@ -7,12 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type TemplateData struct {
-	Title   string
-	Profile interface{}
-}
-
-func Handler(ctx *gin.Context) {
+func DashboardHandler(ctx *gin.Context) {
 
 	// get session
 	session := sessions.Default(ctx)
@@ -24,7 +19,7 @@ func Handler(ctx *gin.Context) {
 	}
 
 	// render template and pass in data
-	ctx.HTML(http.StatusOK, "profile-settings", gin.H{
+	ctx.HTML(http.StatusOK, "dashboard", gin.H{
 		"data": data,
 	})
 

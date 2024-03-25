@@ -1,4 +1,4 @@
-package signup
+package handlers
 
 import (
 	"net/http"
@@ -7,24 +7,19 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type TemplateData struct {
-	Title   string
-	Profile interface{}
-}
-
-func Handler(ctx *gin.Context) {
+func AccountVerificationHandler(ctx *gin.Context) {
 
 	// get session
 	session := sessions.Default(ctx)
 
 	// initialise template data
 	data := TemplateData{
-		Title:   "Error",
+		Title:   "Account Verification",
 		Profile: session.Get("profile"),
 	}
 
 	// render template and pass in data
-	ctx.HTML(http.StatusOK, "sign-up", gin.H{
+	ctx.HTML(http.StatusOK, "account-verification", gin.H{
 		"data": data,
 	})
 }
