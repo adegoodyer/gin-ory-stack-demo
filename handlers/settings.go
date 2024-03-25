@@ -1,4 +1,4 @@
-package accountrecovery
+package handlers
 
 import (
 	"net/http"
@@ -7,24 +7,20 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type TemplateData struct {
-	Title   string
-	Profile interface{}
-}
-
-func Handler(ctx *gin.Context) {
+func ProfileSettingsHandler(ctx *gin.Context) {
 
 	// get session
 	session := sessions.Default(ctx)
 
 	// initialise template data
 	data := TemplateData{
-		Title:   "Error",
+		Title:   "Profile Settings",
 		Profile: session.Get("profile"),
 	}
 
 	// render template and pass in data
-	ctx.HTML(http.StatusOK, "account-recovery", gin.H{
+	ctx.HTML(http.StatusOK, "profile-settings", gin.H{
 		"data": data,
 	})
+
 }
