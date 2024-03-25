@@ -55,7 +55,7 @@ func NewRouter() *gin.Engine {
 		ctx.Redirect(http.StatusMovedPermanently, "/dashboard")
 	})
 	router.GET("/dashboard", handlers.DashboardHandler)
-	// router.GET("/login", handlers.LoginHandler)
+	router.GET("/login", handlers.LoginHandler)
 	router.GET("/sign-up", handlers.AccountRegistrationHandler)
 	router.GET("/account-recovery", handlers.AccountRecoveryHandler)
 	router.GET("/account-verification", handlers.AccountRecoveryHandler)

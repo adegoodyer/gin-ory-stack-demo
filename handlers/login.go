@@ -1,4 +1,4 @@
-package signin
+package handlers
 
 import (
 	"net/http"
@@ -7,12 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type TemplateData struct {
-	Title   string
-	Profile interface{}
-}
-
-func Handler(ctx *gin.Context) {
+func LoginHandler(ctx *gin.Context) {
 
 	// get session
 	session := sessions.Default(ctx)
@@ -24,7 +19,8 @@ func Handler(ctx *gin.Context) {
 	}
 
 	// render template and pass in data
-	ctx.HTML(http.StatusOK, "sign-in", gin.H{
+	ctx.HTML(http.StatusOK, "login", gin.H{
 		"data": data,
 	})
 }
+
