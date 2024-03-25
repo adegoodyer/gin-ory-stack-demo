@@ -7,14 +7,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SignUpHandler(ctx *gin.Context) {
+func AccountRegistrationHandler(ctx *gin.Context) {
 
 	// get session
 	session := sessions.Default(ctx)
 
 	// initialise template data
 	data := TemplateData{
-		Title:   "Account Signup",
+		Title:   "Account Registration",
 		Profile: session.Get("profile"),
 	}
 

@@ -56,7 +56,7 @@ func NewRouter() *gin.Engine {
 	})
 	router.GET("/dashboard", handlers.DashboardHandler)
 	// router.GET("/login", handlers.LoginHandler)
-	router.GET("/sign-up", handlers.SignUpHandler)
+	router.GET("/sign-up", handlers.AccountRegistrationHandler)
 	router.GET("/account-recovery", handlers.AccountRecoveryHandler)
 	router.GET("/account-verification", handlers.AccountRecoveryHandler)
 	router.GET("/profile-settings", handlers.ProfileSettingsHandler)
